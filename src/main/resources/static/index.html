@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Main Page</title>
+</head>
+<body ng-app="demo">
+<hr/>
+<div class="container" ng-controller="UserController">
+    <div class="row">
+        <label>FirstName</label> <input type="text" ng-model="employeeDto.firstName" class="input-sm spacing"/>
+        <label>LastName</label> <input type="text" ng-model="employeeDto.lastName"  class="input-sm custom-width spacing"/>
+        <label>Organisation</label> <input type="text" ng-model="employeeDto.organisation" class="input-sm spacing"/>
+        <label>Email</label> <input type="text" ng-model="employeeDto.email" class="input-sm spacing"/>
+        <button ng-click="saveUser()" class="btn btn-sm btn-info">Save Employee</button>
+        <!--<button ng-click="getAllEmployee()" class="btn btn-sm btn-info">Show All Employees</button>-->
+    </div>
+    <hr/>
+
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading"><span class="lead">List of Employees </span></div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+
+                        <th>FirstName</th>
+                        <th>LastName</th>
+                        <th>Organisation</th>
+                        <th>Email</th>
+                        <th width="100"></th>
+                        <th width="100"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="u in allUsers">
+                        <td>{{u.firstName}}</td>
+                        <td>{{u.lastName}}</td>
+                        <td>{{u.organisation}}</td>
+                        <td>{{u.email}}</td>
+                        <td><button type="button" ng-click="editEmployee(u.id)" class="btn btn-success custom-width">Edit</button></td>
+                        <td><button type="button" ng-click="removeEmployee(u.id)" class="btn btn-danger custom-width">Remove</button></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+</body>
+<script src="js/lib/angular.min.js"></script>
+<script src="js/lib/ui-bootstrap-tpls-2.5.0.min.js"></script>
+<script src="js/app/app.js"></script>
+<script src="js/app/UserController.js"></script>
+<script src="js/app/UserService.js"></script>
+<link rel="stylesheet" href="css/lib/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/app/app.css"/>
+</html>
