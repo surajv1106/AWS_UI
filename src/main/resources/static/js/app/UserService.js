@@ -5,7 +5,7 @@ angular.module('demo.services', []).factory('UserService',
 			var service = {};
 
 			service.getAllUsers = function() {
-				return $http.get(CONSTANTS.getAllUsers);
+				return $http.get(CONSTANTS.getEmployeeList);
 			}
 			service.saveUser = function(employeeDto) {
 				return $http.post(CONSTANTS.saveUser, employeeDto);
